@@ -1,0 +1,3 @@
+getgenv().settings = {
+    SwordFightersSimulator = true,
+}
