@@ -2,6 +2,8 @@ local ohString1 = "Tower 1"
 
 game:GetService("ReplicatedStorage").Packages.Knit.Services.TowerService.RF.StartTower:InvokeServer(ohString1)
 
+task.wait(62)
+
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2217.47485, 19.9381084, -779.134033, 0.459240139, -7.51533449e-08, -0.888312161, 5.25374482e-08, 1, -5.74415644e-08, 0.888312161, -2.02901838e-08, 0.459240139)
 task.wait(0.5)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2218.82056, 19.9381084, -779.859558, -0.817924559, 6.14254603e-08, -0.575325489, 6.94245799e-08, 1, 8.0674134e-09, 0.575325489, -3.33431949e-08, -0.817924559)
