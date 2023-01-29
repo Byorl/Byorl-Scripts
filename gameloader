@@ -1,3 +1,0 @@
-getgenv().settings = {
-    SwordFightersSimulator = true,
-}
