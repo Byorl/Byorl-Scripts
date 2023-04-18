@@ -104,8 +104,8 @@ local Toggle = page1:CreateToggle({
         }
         while task.wait(0.33) do 
             if not getgenv().StatFarm then main.unequipTool() break; end;
-	    repeat task.wait() until s.Players.LocalPlayer.Character:FindFirstChild('Humanoid')
-            main.equipTool(s.Players.LocalPlayer.Backpack:FindFirstChild('Meditate'))
+	    repeat task.wait() until game.Players.LocalPlayer.Character:FindFirstChild('Humanoid')
+            main.equipTool(game.Players.LocalPlayer.Backpack:FindFirstChild('Meditate'))
             for i,v in pairs(requestRemotes) do 
                 if table.find(requestRemotes, v) then 
                     task.wait(0.05)
@@ -148,8 +148,8 @@ local Toggle = page1:CreateToggle({
         getgenv().Psychic = t;
         while task.wait(0.33) do 
             if not getgenv().Psychic then main.unequipTool() break; end;
-            repeat task.wait() until s.Players.LocalPlayer.Character:FindFirstChild('Humanoid')
-            main.equipTool(s.Players.LocalPlayer.Backpack:FindFirstChild('Meditate'))
+            repeat task.wait() until game.Players.LocalPlayer.Character:FindFirstChild('Humanoid')
+            main.equipTool(game.Players.LocalPlayer.Backpack:FindFirstChild('Meditate'))
         end
     end,
 })
@@ -311,14 +311,14 @@ local Toggle = page2:CreateToggle({
             if not getgenv().AutoGrabQuest then break; end
             local npcGiver = workspace.Map.QuestNPC.Sathopian;
             if npcGiver.QuestBbGui.Enabled then 
-                local pos = s.Players.LocalPlayer.Character.HumanoidRootPart.CFrame; 
+                local pos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame; 
                 task.wait(0.1)
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = npcGiver.HumanoidRootPart.CFrame;
                 task.wait(1)
-                main.clickButton(s.Players.LocalPlayer.PlayerGui.ScreenGui.QuestTalkBtn)
+                main.clickButton(game.Players.LocalPlayer.PlayerGui.ScreenGui.QuestTalkBtn)
                 repeat task.wait(0.1)
-                    main.clickButton(s.Players.LocalPlayer.PlayerGui.ScreenGui.QuestMsgFrame.Btn)
-                until not s.Players.LocalPlayer.PlayerGui.ScreenGui.QuestMsgFrame.Visible;
+                    main.clickButton(game.Players.LocalPlayer.PlayerGui.ScreenGui.QuestMsgFrame.Btn)
+                until not game.Players.LocalPlayer.PlayerGui.ScreenGui.QuestMsgFrame.Visible;
                 task.wait(1)
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos;
             end 
@@ -339,7 +339,7 @@ local Toggle = page2:CreateToggle({
                     if v.Visible then 
                         if string.find(v.QuestTxt.Text, 'Train Psychic Power') and not v.ClaimBtn.Visible then 
                             if v.ClaimBtn.Visible then main.unequipTool() end 
-                            main.equipTool(s.Players.LocalPlayer.Backpack:FindFirstChild('Meditate'))
+                            main.equipTool(game.Players.LocalPlayer.Backpack:FindFirstChild('Meditate'))
                         elseif string.find(v.QuestTxt.Text, 'Train Movement Speed') and not v.ClaimBtn.Visible then 
                             game.ReplicatedStorage.RemoteEvent:FireServer({[1] = 'Add_MS_Request'})
                         elseif string.find(v.QuestTxt.Text, 'Train Jump Ability') and not v.ClaimBtn.Visible then 
@@ -450,7 +450,7 @@ local Toggle = page3:CreateToggle({
     Flag = 'WalkspeedToggle',
     Callback = function(t)
         getgenv().ToggleSpeed = t;
-        getgenv().WSS = s.RunService.Heartbeat:connect(function() 
+        getgenv().WSS = game.RunService.Heartbeat:connect(function() 
             if not getgenv().ToggleSpeed then return; end
             repeat task.wait() until game.Players.LocalPlayer.Character.Humanoid
             game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = getgenv().Walkspeed -- only non-skids know why I am not using shortnames
@@ -509,7 +509,7 @@ local Keybind = page3:CreateKeybind({
                     end
                 end
             end
-            NC = s.RunService.Stepped:Connect(NoClip) 
+            NC = game.RunService.Stepped:Connect(NoClip) 
         elseif getgenv().NoClip then 
             getgenv().NoClip = false;
             for _,nc in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do 
