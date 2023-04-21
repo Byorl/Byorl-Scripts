@@ -1,0 +1,239 @@
+local function toggleSetting(settingName)
+    return function(value)
+        getgenv().Settings[settingName] = value
+        print(settingName, value)
+    end
+end
+
+-- Define your settings table
+getgenv().Settings = {
+    autoClicker = false,
+
+    -- Normal Upgrades
+    autobetterServers = false,
+    autobetterinternetSpeed = false,
+    autoFirewall = false,
+    autoAutoClicker = false,
+    autogoldChance = false,
+    autocloudHosting = false,
+    autoEncryptor = false,
+    autoTrees = false,
+    autoddosProtector = false,
+    autoupgradeHardware = false,
+
+    -- Gold Upgrades
+    autogoldenServers = false,
+    autoPackager = false,
+    autogoldenddosProtector = false,
+    autofiberCables = false,
+
+    -- Rebirth Upgrades
+    autobugDetector = false,
+
+    -- Rebirth
+    autoRebirth = false
+}
+
+-- Define your remotes
+local clickremote = game:GetService("ReplicatedStorage").Remotes.Data
+local normalupgradesremote = game:GetService("ReplicatedStorage").Remotes.Upgrade
+local goldupgradesremote = game:GetService("ReplicatedStorage").Remotes.GUpgrade
+
+-- Main 
+spawn(function()
+    while true do
+        if getgenv().Settings.autoClicker then
+            clickremote:FireServer(27, 1)
+        end
+        task.wait(0.01)
+    end
+end)
+
+-- Normal Upgrades
+spawn(function()
+    while true do
+        if getgenv().Settings.autobetterServers then
+            normalupgradesremote:InvokeServer("better servers")
+        end
+        if getgenv().Settings.autobetterinternetSpeed then
+            normalupgradesremote:InvokeServer("better internet speed")
+        end
+        if getgenv().Settings.autoFirewall then
+            normalupgradesremote:InvokeServer("firewall")
+        end
+        if getgenv().Settings.autoAutoClicker then
+            normalupgradesremote:InvokeServer("autoclicker")
+        end
+        if getgenv().Settings.autogoldChance then
+            normalupgradesremote:InvokeServer("gold chance")
+        end
+        if getgenv().Settings.autocloudHosting then
+            normalupgradesremote:InvokeServer("cloud hosting")
+        end
+        if getgenv().Settings.autoEncryptor then
+            normalupgradesremote:InvokeServer("encryptor")
+        end
+        if getgenv().Settings.autoTrees then
+            normalupgradesremote:InvokeServer("trees")
+        end
+        if getgenv().Settings.autoddosProtector then
+            normalupgradesremote:InvokeServer("DDOS protector")
+        end
+        if getgenv().Settings.autoupgradeHardware then
+            normalupgradesremote:InvokeServer("upgrade hardware")
+        end
+        if getgenv().Settings.autoRebirth then
+            normalupgradesremote:InvokeServer("Rebirth")
+        end
+        task.wait(0.3)
+    end
+end)
+
+-- Golden Upgrades
+spawn(function()
+    while true do
+        if getgenv().Settings.autogoldenServers then
+            goldupgradesremote:InvokeServer("golden servers")
+        end
+        if getgenv().Settings.autoPackager then
+            goldupgradesremote:InvokeServer("packager")
+        end
+        if getgenv().Settings.autogoldenddosProtector then
+            goldupgradesremote:InvokeServer("golden DDOS protector")
+        end
+        if getgenv().Settings.autofiberCables then
+            goldupgradesremote:InvokeServer("fiber cables")
+        end
+        task.wait(0.5)
+    end
+end)
+
+
+-- Rebirth Upgrades
+spawn(function()
+    while true do
+        if getgenv().Settings.autobugDetector then
+            goldupgradesremote:InvokeServer("bug detector")
+        end
+        task.wait(0.3)
+    end
+end)
+
+-- Auto Rebirth
+spawn(function()
+    while true do
+        if getgenv().Settings.autoRebirth then
+            normalupgradesremote:InvokeServer("Rebirth")
+        end
+        task.wait(0.3)
+    end
+end)
+
+local DiscordLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt"))()
+
+local window = DiscordLib:Window("Server Simulator")
+
+local MainCategory = window:Server("Stats", "")
+
+local MainCategoryButtons = MainCategory:Channel("Clicker")
+
+MainCategoryButtons:Toggle("Auto-Clicker",false, function(bool)
+    getgenv().Settings.autoClicker = bool
+    print(bool)
+end)
+
+MainCategoryButtons:Seperator()
+
+MainCategoryButtons:Toggle("Auto-Rebirth",false, function(bool)
+    getgenv().Settings.autoRebirth = bool
+    print(bool)
+end)
+
+-- Normal Upgrades
+local NormalUpgradesCategoryButtons = MainCategory:Channel("Normal Upgrades")
+
+NormalUpgradesCategoryButtons:Toggle("Better-Servers!",false, function(bool)
+    getgenv().Settings.autobetterServers = bool
+    print(bool)
+end)
+
+NormalUpgradesCategoryButtons:Toggle("Better-Internet-Speed!",false, function(bool)
+    getgenv().Settings.autobetterinternetSpeed = bool
+    print(bool)
+end)
+
+NormalUpgradesCategoryButtons:Toggle("Firewall!",false, function(bool)
+    getgenv().Settings.autoFirewall = bool
+    print(bool)
+end)
+
+NormalUpgradesCategoryButtons:Toggle("Auto-Clicker!",false, function(bool)
+    getgenv().Settings.autoAutoClicker = bool
+    print(bool)
+end)
+
+NormalUpgradesCategoryButtons:Toggle("Gold-Chance!",false, function(bool)
+    getgenv().Settings.autogoldChance = bool
+    print(bool)
+end)
+
+NormalUpgradesCategoryButtons:Toggle("Cloud-Hosting!",false, function(bool)
+    getgenv().Settings.autocloudHosting = bool
+    print(bool)
+end)
+
+NormalUpgradesCategoryButtons:Toggle("Encryptor!",false, function(bool)
+    getgenv().Settings.autoEncryptor = bool
+    print(bool)
+end)
+
+NormalUpgradesCategoryButtons:Toggle("Trees!",false, function(bool)
+    getgenv().Settings.autoTrees = bool
+    print(bool)
+end)
+
+NormalUpgradesCategoryButtons:Toggle("DDOS-Protector!",false, function(bool)
+    getgenv().Settings.autoddosProtector = bool
+    print(bool)
+end)
+
+NormalUpgradesCategoryButtons:Toggle("Upgrade-Hardware!",false, function(bool)
+    getgenv().Settings.autoupgradeHardware = bool
+    print(bool)
+end)
+
+-- Golden Upgrades
+local GoldUpgradesCategoryButtons = MainCategory:Channel("Gold Upgrades")
+
+GoldUpgradesCategoryButtons:Toggle("Golden-Servers!",false, function(bool)
+    getgenv().Settings.autogoldenServers = bool
+    print(bool)
+end)
+
+GoldUpgradesCategoryButtons:Toggle("Packager!",false, function(bool)
+    getgenv().Settings.autoPackager = bool
+    print(bool)
+end)
+
+GoldUpgradesCategoryButtons:Toggle("Golden-DDOS-Protector!",false, function(bool)
+    getgenv().Settings.autogoldenddosProtector = bool
+    print(bool)
+end)
+
+GoldUpgradesCategoryButtons:Toggle("Fiber-Cables!",false, function(bool)
+    getgenv().Settings.autofiberCables = bool
+    print(bool)
+end)
+
+-- Rebirth Upgrades
+local RebirthUpgradesCategoryButtons = MainCategory:Channel("Rebirth Upgrades")
+
+RebirthUpgradesCategoryButtons:Toggle("Bug-Detector!",false, function(bool)
+    getgenv().Settings.autobugDetector = bool
+    print(bool)
+end)
+
+serv:Channel("by DarkStarsGaming#0001")
+
+
+win:Server("Main", "http://www.roblox.com/asset/?id=6031075938")
