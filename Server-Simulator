@@ -45,7 +45,7 @@ spawn(function()
         if getgenv().Settings.autoClicker then
             clickremote:FireServer(27, 1)
         end
-        task.wait(0.01)
+        task.wait(0.05)
     end
 end)
 
