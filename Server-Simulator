@@ -133,9 +133,9 @@ local DiscordLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/da
 
 local window = DiscordLib:Window("Server Simulator")
 
-local MainCategory = window:Server("Stats", "")
+local MainCategory = window:Server("Stats", "http://www.roblox.com/asset/?id=7059346373")
 
-local MainCategoryButtons = MainCategory:Channel("Clicker")
+local MainCategoryButtons = MainCategory:Channel("Auto-Settings")
 
 MainCategoryButtons:Toggle("Auto-Clicker",false, function(bool)
     getgenv().Settings.autoClicker = bool
@@ -149,8 +149,10 @@ MainCategoryButtons:Toggle("Auto-Rebirth",false, function(bool)
     print(bool)
 end)
 
+local ShopCategory = window:Server("Shop", "http://www.roblox.com/asset/?id=11385419674")
+
 -- Normal Upgrades
-local NormalUpgradesCategoryButtons = MainCategory:Channel("Normal Upgrades")
+local NormalUpgradesCategoryButtons = ShopCategory:Channel("Normal Upgrades")
 
 NormalUpgradesCategoryButtons:Toggle("Better-Servers!",false, function(bool)
     getgenv().Settings.autobetterServers = bool
@@ -203,7 +205,7 @@ NormalUpgradesCategoryButtons:Toggle("Upgrade-Hardware!",false, function(bool)
 end)
 
 -- Golden Upgrades
-local GoldUpgradesCategoryButtons = MainCategory:Channel("Gold Upgrades")
+local GoldUpgradesCategoryButtons = ShopCategory:Channel("Gold Upgrades")
 
 GoldUpgradesCategoryButtons:Toggle("Golden-Servers!",false, function(bool)
     getgenv().Settings.autogoldenServers = bool
@@ -226,7 +228,7 @@ GoldUpgradesCategoryButtons:Toggle("Fiber-Cables!",false, function(bool)
 end)
 
 -- Rebirth Upgrades
-local RebirthUpgradesCategoryButtons = MainCategory:Channel("Rebirth Upgrades")
+local RebirthUpgradesCategoryButtons = ShopCategory:Channel("Rebirth Upgrades")
 
 RebirthUpgradesCategoryButtons:Toggle("Bug-Detector!",false, function(bool)
     getgenv().Settings.autobugDetector = bool
