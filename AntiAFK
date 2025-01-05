@@ -1,3 +1,5 @@
+while not game:IsLoaded() do task.wait() end
+
 local vu = game:GetService("VirtualUser")
 game:GetService("Players").LocalPlayer.Idled:connect(function()
    vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
@@ -6,3 +8,7 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
 end)
 
 print("Boobie trap")
+queue_on_teleport([[
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Byorl/Byorl-Scripts/refs/heads/main/AntiAFK"))()]])
+end)
+
